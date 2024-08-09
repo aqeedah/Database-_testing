@@ -268,3 +268,13 @@ join book b on r.book_id = b.book_id
 join customer c on r.customer_id = c.customer_id
 order by r.review_date desc
 limit 10;```
+
+| Review ID | Book ID | Book Title           | Customer ID | First Name | Ratings | Review Comment         | Review Date |
+|-----------|---------|----------------------|-------------|------------|---------|------------------------|-------------|
+| 1         | 2       | Fourth Wing          | 101         | Akida      | 4       | Excellent Book!        | 25-09-2023  |
+| 4         | 2       | Fourth Wing          | 104         | Swati      | 5       | Nice book to Recommend | 25-05-2023  |
+| 2         | 5       | First Lie Wins       | 102         | Prachi     | 3       | Nice Book!             | 02-01-2023  |
+| 5         | 4       | The Women            | 105         | Mayank     | 4       | Fantastic story!       | 22-09-2022  |
+| 3         | 3       | Bridge to Terabithia | 103         | Divtej     | 2       | Quite slow!            | 15-05-2022  |
+
+
