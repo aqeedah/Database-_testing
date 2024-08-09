@@ -15,7 +15,7 @@
 
 -- Insertion into remaining table and CRUD operation / DDL & DML is done by Prachi Thakral.
 
---Creation of Typescipt, restfulAPI, Unit test, Integration test is done by Akida Laliwala.
+--Creation of Typescipt, restfulAPI, Unit test is done by Akida Laliwala.
 
 ## server.ts by that we can know that our port is running
 
@@ -111,7 +111,7 @@ We create reviewAPI.test.ts file
 | public | review     | table | postgres |
 | public | student    | table | postgres |
 
-## --assertion into table of auther: 
+## --Insertion into table of auther: 
 
 | author_id | first_name | last_name, | email_address        |
 |-----------|------------|------------|----------------------|
@@ -121,7 +121,7 @@ We create reviewAPI.test.ts file
 | 4         | Kristin    | Hannah     | weintra@stmartin.com |
 | 5         | Ashley     | Elston     | rstevenson@prh.com   |
 
-## -- assertion into table of publisher table
+## -- Insertion into table of publisher table
 
 |publisher_id  | publisher_name                 |
 |--------------|--------------------------------|
@@ -131,7 +131,7 @@ We create reviewAPI.test.ts file
 | 4            | St. Martins Press              |
 | 5            | Pamela Dorman Book            |
 
-## -- assertion into table of book table
+## -- Insertion into table of book table
 
 | book_id | book_title                | book_genre         | book_type     | publication_date | price | author_id | Publisher_id | isbn           |
 |---------|---------------------------|--------------------|---------------|------------------|-------|-----------|--------------|----------------|
@@ -141,7 +141,7 @@ We create reviewAPI.test.ts file
 | 4       | The Women                 | Historical Fiction | e-book        | 2017-05-02       | 28.00 | 4         | 4            | 1250178630     |
 | 5       | First Lie Wins            | Thriller           | e-book        | 2024-02-06       | 16.00 | 5         | 5            | 0593492919     |
 
-## --assertion into table of customer
+## --Insertion into table of customer
 
 | customer_id | first_name | last_name | contact_number | address                        | total_spent_amount | registration_date |
 |:-----------:|:----------:|:---------:|:--------------:|:------------------------------:|:------------------:|:-----------------:|
@@ -151,7 +151,7 @@ We create reviewAPI.test.ts file
 | 104         | Swati      | Sansarwal | 720-1254789    | 125,queen street,waterloo,ON   | 450.30             | 2013-05-19        |
 | 105         | Mayank     | Sharma    | 778-9875463    | 78,lester street,waterloo,ON   | 235.40             | 2014-06-15        |
 
-## -- assertion into table of orders
+## -- Insertion into table of orders
 
 | order_id | customer_id | order_date | bill_amount |
 |:--------:|:-----------:|:----------:|:-----------:|
@@ -161,7 +161,7 @@ We create reviewAPI.test.ts file
 | 004      | 104         | 2020-04-18 | 45.11       |
 | 005      | 105         | 2019-05-12 | 70.17       |
 
-## -- seertion into order_item:
+## -- Insertion into order_item:
 
 | order_item_id | order_id | book_id | quantity | price  |
 |:-------------:|:--------:|:-------:|:--------:|:------:|
@@ -171,7 +171,7 @@ We create reviewAPI.test.ts file
 | 04            | 004      | 7       | 1        | 38.00  |
 | 05            | 005      | 11      | 1        | 28.40  |
 
-## -- assertion into review
+## -- Insertion into review
 
 | review_id | customer_id | book_id | review_date | review_comment         | ratings |
 | 1         | 101         | 2       | 2023-09-25  | Excellent Book!        | 4       |
@@ -180,7 +180,7 @@ We create reviewAPI.test.ts file
 | 4         | 104         | 7       | 2023-05-25  | Nice book to Recommend | 5       |
 | 5         | 105         | 11      | 2022-09-22  | Fantastic story!       | 4       |
 
--- DML Operations/ CRUD Operation
+# -- DML Operations/ CRUD Operation
 
 -- Insert into customer table
 
@@ -206,34 +206,34 @@ insert into customer (customer_id,first_name,last_name,contact_number,address,to
 
 -- 1.Details of auther of same genre book published in the last 10 years
 
-select a.author_id,a.first_name,a.last_name, count(book_id) as BookCount
+```select a.author_id,a.first_name,a.last_name, count(book_id) as BookCount
 from book b
 join author a on b.author_id = a.author_id
 where b.book_genre = 'Fantasy' and publication_date >= current_date - interval '10 years'
 group by a.author_id,a.first_name,a.last_name
-having count(b.book_id) > 0;
+having count(b.book_id) > 0;```
 
 
 
 -- 2.Loyal customer who has spent more than $51 in the last year
 
-select c.customer_id, c.first_name, c.last_name, sum(o.bill_amount) as TotalSpent
+```select c.customer_id, c.first_name, c.last_name, sum(o.bill_amount) as TotalSpent
 from customer c
 join orders o on c.customer_id = o.customer_id
 where o.order_date >= current_date - interval '1 year'
 group by c.customer_id
-having sum(o.bill_amount) > 51;
+having sum(o.bill_amount) > 51;```
 
 
 
 
 -- 3.Book which have better user ratings than average
 
-select b.book_id, b.book_title, avg(r.ratings) as AvgRating
+```select b.book_id, b.book_title, avg(r.ratings) as AvgRating
 from Book b
 join review r on b.book_id = r.book_id
 group by b.book_id
-having avg(r.ratings) > (select avg(ratings) from review);
+having avg(r.ratings) > (select avg(ratings) from review);```
 
 | Book ID | Book Title  | Average Rating   |
 |---------|-------------|------------------|
@@ -244,12 +244,12 @@ having avg(r.ratings) > (select avg(ratings) from review);
 
 -- 4.Most popular genre by sales
 
-select book_genre, sum(order_item.quantity) as total_sales
+```select book_genre, sum(order_item.quantity) as total_sales
 from book
 join order_item on book.book_id = order_item.book_id
 group by book_genre
 order by total_sales desc
-limit 5;
+limit 5;```
 
 | Book Genre         | Total Sales |
 |--------------------|-------------|
@@ -262,9 +262,9 @@ limit 5;
 
 -- 5.10 most recent review posted by customers
 
-select r.review_id, r.book_id, b.book_title, r.customer_id, c.first_name, r.ratings, r.review_comment, r.review_date
+```select r.review_id, r.book_id, b.book_title, r.customer_id, c.first_name, r.ratings, r.review_comment, r.review_date
 from review r
 join book b on r.book_id = b.book_id
 join customer c on r.customer_id = c.customer_id
 order by r.review_date desc
-limit 10;
+limit 10;```
