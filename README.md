@@ -27,25 +27,40 @@
 
 ## -- Creation of table 
 We create auther.ts file
+
 We create publisher.ts file
+
 We create book.ts file
+
 We create customer.ts file
+
 We create orders.ts file
+
 We create order_item.ts file
+
 We create review.ts file
 
 ## -- Creation of restAPI
 We create autherAPI.test file
 
-We create 
+We create publisherAPI.test file
 
+We create bookAPI.test file
 
+We create customerAPI.test file
+
+We create orderAPI.test file
+
+We create order_itemAPI.test file
+
+We create reviewAPI.test file
 
 ## -- Creation of file for Unit test
 We create autherAPI.test.ts file
 
 
 ## -- Creation of file for integratoion test
+We crate autherApiIntegration.test.ts
 
 ## -- CRUD Operation is done in postgres environment
 
