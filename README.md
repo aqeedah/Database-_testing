@@ -34,4 +34,18 @@ We create orders.ts file
 We create order_item.ts file
 We create review.ts file
 
-## -- Creation of restAPI 
+## -- Creation of restAPI
+We create autherAPI.test file
+We create 
+
+
+
+## -- Creation of file for Unit test
+We create autherAPI.test.ts file
+
+
+## -- Creation of file for integratoion test
+
+## -- CRUD Operation is done in postgres environment
+
+-- create table's Query for all table
