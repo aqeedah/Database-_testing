@@ -91,21 +91,6 @@ We create orderItemAPI.test.ts file
 We create reviewAPI.test.ts file
 
 
-## -- Creation of file for integratoion test
-We create authorApiIntegration.test.ts file
-
-We create publisherApiIntegration.test.ts file
-
-We create bookApiIntegration.test.ts file
-
-We create customerApiIntegration.test.ts file
-
-We create orderApiIntegration.test.ts file
-
-We create orderItemApiIntegration.test.ts file
-
-We create reviewApiIntegration.test.ts file
-
 ## -- CRUD Operation is done in postgres environment
 
 -- create table's Query for all table
