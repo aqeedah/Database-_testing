@@ -1,4 +1,4 @@
-### Programme: Database Testing [SENG8075]
+## Programme: Database Testing [SENG8075]
 
 ## Section:3
 
